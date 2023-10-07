@@ -11,7 +11,7 @@ signal squashed
 func _physics_process(_delta: float):
 	move_and_slide()
 
-# This function will be called from the Main scene.
+# This function will be called from the Main scene.0.402
 func initialize(start_position: Vector3, player_position: Vector3):
 	# We position the mob by placing it at start_position
 	# and rotate it towards player_position, so it looks at the player.
@@ -27,6 +27,8 @@ func initialize(start_position: Vector3, player_position: Vector3):
 	# We then rotate the velocity vector based on the mob's Y rotation
 	# in order to move in the direction the mob is looking.
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	
+	$AnimationMob.speed_scale = random_speed / min_speed
 
 
 # This function will be called when the mob leaves the screen and destroys it.
